@@ -1,8 +1,5 @@
 <h1 align="center"> Modelo de recomendación de Juegos de Steam</h1>
 
-<h4 align="center"> Este repositorio alberga el Proyecto Individual de Machine Learning realizado durante el Master de DataScience & IA en Evolve Academy. </h4>
-
-
  <p align="center">
   <img src="https://img.shields.io/badge/Python-green">
   <img src="https://img.shields.io/badge/Numpy-aqua">
