@@ -1,11 +1,8 @@
-from fastapi import FastAPI  # Importo las librerías que utilizaré
 import pandas as pd
-import uvicorn
 import numpy as np
 import scipy as sp
 from sklearn.metrics.pairwise import cosine_similarity
 
-app = FastAPI()
 
 # Lectura de todos los CSV
 play_genre = pd.read_csv('horas_jugadas_genero.csv', low_memory=False)
@@ -18,7 +15,6 @@ render_model= pd.read_csv('modeloo_render.csv',low_memory=False)
 
 # Funcion def PlayTimeGenre
 
-@app.get("/genero/{genres}")
 def PlayTimeGenre(genres):
     df_filtered = play_genre[play_genre['genres'] == genres]
 
@@ -36,15 +32,9 @@ def PlayTimeGenre(genres):
             "Año": str(max_playtime_year),
             "Horas": max_playtime_hours
         }
-    }
-
-if __name__=="__main__":
-    uvicorn.run("main:app",port=8000,reload=True) #Corró la función
-    
+    }   
     
 # Funcion def UserForGenre
-
-@app.get("/usuario/{genres}")
 
 def UserForGenre(genres: str):
     '''Función que devuelve al usuario con más horas jugadas por genero y año'''
@@ -72,8 +62,6 @@ def UserForGenre(genres: str):
 
 # Funcion def UsersRecommend
 
-@app.get("/year")
-
 def UsersRecommend(year: int):
     '''Devuelve los 3 juegos más recomendados por usuarios 
         para el año dado por un usuario específico.'''
@@ -90,15 +78,9 @@ def UsersRecommend(year: int):
 
     top_3_games_list = [{f"Puesto {i+1}: {game}": count} for i, (game, count) in top_games.iterrows()]
 
-    return top_3_games_list
-
-if __name__=="__main__":
-    uvicorn.run("main:app",port=8000,reload=True)
-    
+    return top_3_games_list   
     
 # Funcion def juegosNoRecomendados
-
-@app.get("/año")
 
 def juegosNoRecomendados(año: int):
     '''Devuelve los juegos Menos recomendados por usuarios para el año dado.'''
@@ -117,14 +99,9 @@ def juegosNoRecomendados(año: int):
 
     return less_3_games_list
 
-
-if __name__=="__main__":
-    uvicorn.run("main:app",port=8000,reload=True)
-    
+   
     
 # Función de Sentimiento   
-
-@app.get("/anio")
 
 def sentiment_analysis(anio):
     '''
@@ -146,15 +123,9 @@ def sentiment_analysis(anio):
             result_dict["Positive"] = count
 
     return result_dict
-
-
-if __name__=="__main__":
-    uvicorn.run("main:app",port=8000,reload=True)
-    
+   
 
 # Función Sistema de recomendación Item-Item
-
-@app.get("/juegos_item_item/{item_id}")
 
 def juegos_poritem(item_id: int):
     juego = render_model[render_model['item_id'] == item_id]
@@ -179,18 +150,10 @@ def juegos_poritem(item_id: int):
     nombres_juegossimi = df_sample.loc[juegos_simi_indices, 'app_name'].tolist()
 
     return {"juegos_similares": nombres_juegossimi}
-
-# Ejecutar el servidor
-if __name__ == "__main__":
-    import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
-    
     
     
 # Función Sistema de recomendación Usuario-Item
 
-
-@app.get("/juegos_usuario_item/{user_id}")
 
 def recomendacion_usuario(user_id: str):
     # Encuentra con el user_id los juegos recomendados
@@ -207,9 +170,3 @@ def recomendacion_usuario(user_id: str):
         return juegos_similares  
     else:
         return "El juego con el user_id especificado no existe en la base de datos."
-
-
-# Ejecutar el servidor
-if __name__ == "__main__":
-    import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)

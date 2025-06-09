@@ -1,6 +1,6 @@
-<h1 align="center"> MLOps Juegos Steam - Modelo de recomendación </h1>
+<h1 align="center"> Modelo de recomendación de Juegos de Steam</h1>
 
-<h4 align="center"> Este repositorio alberga el Proyecto Individual de Machine Learning realizado durante el bootcamp de Henry. </h4>
+<h4 align="center"> Este repositorio alberga el Proyecto Individual de Machine Learning realizado durante el Master de DataScience & IA en Evolve Academy. </h4>
 
 
  <p align="center">
@@ -9,7 +9,7 @@
   <img src="https://img.shields.io/badge/Pandas-blue">
   <img src="https://img.shields.io/badge/Matplotlib-grey">
   <img src="https://img.shields.io/badge/Seaborn-aquamarine">
-  <img src="https://img.shields.io/badge/FastApi-darkseagreen">
+  <img src="https://img.shields.io/badge/Streamlit-darkseagreen">
   <img src="https://img.shields.io/badge/Scikitlearn-orange">
   <img src="https://img.shields.io/badge/Render-cyan">
   <img src="https://img.shields.io/badge/TextBlob-black">
@@ -79,26 +79,16 @@ El primer modelo evalúa la relación entre ítems para encontrar similitudes, m
 Para ejecutar la API localmente, se deben seguir los siguientes pasos:
 
 1. Clonar el repositorio:  
+   - `git clone git@github.com:tpadrinp/Recomendaciones-Steam.git`
+2. Navega al directorio del proyecto:
+   - `cd Recomendaciones-Steam`
 
-2. Crear y activar un entorno virtual:  
-   - `python -m venv entorno`  
-   - Activar entorno:  
-     - Windows: `entorno\Scripts\activate`  
-     - Unix/macOS: `source entorno/bin/activate`
+3. Crea un entorno virtual (opcional pero recomendado):
+   - `python -m venv venv`
+   - `source venv/bin/activate`  #En Windows: `venv\Scripts\activate`
 
-3. Instalar las dependencias:  
-   `pip install -r requirements.txt`
-
-4. Ejecutar la aplicación:  
-   - Si uvicorn está importado en `main.py`: `python main.py`  
-   - Alternativamente: `uvicorn main:app --reload`
-
-5. Acceder a la documentación interactiva:  
-   Abrir en el navegador la dirección proporcionada por la terminal y añadir `/docs`.
-
-6. Probar los endpoints:  
-   Utilizar la opción "Try it out", ingresar parámetros y ejecutar la consulta.
-
+4. Instala las dependencias necesarias:
+   - `pip install -r requirements.txt`
 
 ## Conclusión
 
