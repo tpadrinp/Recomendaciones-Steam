@@ -9,7 +9,6 @@
   <img src="https://img.shields.io/badge/Pandas-blue">
   <img src="https://img.shields.io/badge/Matplotlib-grey">
   <img src="https://img.shields.io/badge/Seaborn-aquamarine">
-  <img src="https://img.shields.io/badge/FastApi-darkseagreen">
   <img src="https://img.shields.io/badge/Scikitlearn-orange">
   <img src="https://img.shields.io/badge/Render-cyan">
   <img src="https://img.shields.io/badge/TextBlob-black">
